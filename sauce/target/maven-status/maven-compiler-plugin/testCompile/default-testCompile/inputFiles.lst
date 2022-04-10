@@ -1,0 +1,15 @@
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/BasePage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Tests/ProductTest.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/CheckoutOverviewPage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/CartPage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/LoginPage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Tests/BaseTest.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/ProductPage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/CheckoutPage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Pages/CheckoutCompletePage.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Tests/LoginTest.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Utilities/DriverFactory.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Tests/CheckoutTest.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/Tests/CheckoutOverviewTest.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/PageElements/ProductElements.java
+/home/will/Projects/page-object-automation/sauce/src/test/java/com/saucedemo/PageElements/CartElements.java

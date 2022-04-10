@@ -1,0 +1,15 @@
+com/saucedemo/Tests/CheckoutTest.class
+com/saucedemo/Pages/CheckoutOverviewPage.class
+com/saucedemo/Pages/CheckoutCompletePage.class
+com/saucedemo/Pages/CheckoutPage.class
+com/saucedemo/Pages/CartPage.class
+com/saucedemo/Tests/ProductTest.class
+com/saucedemo/Pages/BasePage.class
+com/saucedemo/PageElements/CartElements.class
+com/saucedemo/Tests/LoginTest.class
+com/saucedemo/Utilities/DriverFactory.class
+com/saucedemo/PageElements/ProductElements.class
+com/saucedemo/Pages/LoginPage.class
+com/saucedemo/Pages/ProductPage.class
+com/saucedemo/Tests/BaseTest.class
+com/saucedemo/Tests/CheckoutOverviewTest.class
