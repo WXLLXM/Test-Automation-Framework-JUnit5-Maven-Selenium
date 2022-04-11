@@ -79,7 +79,7 @@ public class DriverFactory {
 
     private WebDriver createRemoteDriver() {
         WebDriver driver;
-        String remoteURL = "http://http://172.17.0.1/:4444/";
+        String remoteURL = "http://172.17.0.1/:4444/";
 
         try {
             driver = new RemoteWebDriver(URI.create(remoteURL).toURL(), setupRemoteWebDriver());
