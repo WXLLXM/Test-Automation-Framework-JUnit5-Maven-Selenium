@@ -16,8 +16,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 
-    // private String browserSelection = System.getProperty("env.BROWSER").toUpperCase();
-    // private boolean isGridEnabled = System.getProperty("env.GRID").toLowerCase().contains("true");
+    // private String browserSelection =
+    // System.getProperty("env.BROWSER").toUpperCase();
+    // private boolean isGridEnabled =
+    // System.getProperty("env.GRID").toLowerCase().contains("true");
 
     private String browserSelection = "CHROME";
     private boolean isGridEnabled = true;
@@ -77,7 +79,7 @@ public class DriverFactory {
 
     private WebDriver createRemoteDriver() {
         WebDriver driver;
-        String remoteURL = "http://localhost:4444/";
+        String remoteURL = "http://http://172.17.0.1/:4444/";
 
         try {
             driver = new RemoteWebDriver(URI.create(remoteURL).toURL(), setupRemoteWebDriver());
