@@ -20,7 +20,7 @@ public class DriverFactory {
     // private boolean isGridEnabled = System.getProperty("env.GRID").toLowerCase().contains("true");
 
     private String browserSelection = "CHROME";
-    private boolean isGridEnabled = false;
+    private boolean isGridEnabled = true;
 
     // ** Driver setup for Selenium WebDriver */
 
