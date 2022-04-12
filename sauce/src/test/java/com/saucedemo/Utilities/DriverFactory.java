@@ -3,6 +3,7 @@ package com.saucedemo.Utilities;
 import java.net.MalformedURLException;
 import java.net.URI;
 
+import org.apache.commons.lang3.ObjectUtils.Null;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,36 +17,43 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 
-    // private String browserSelection =
-    // System.getProperty("env.BROWSER").toUpperCase();
-    // private boolean isGridEnabled =
-    // System.getProperty("env.GRID").toLowerCase().contains("true");
+    private String getBrowserType() {
+        if (System.getProperty("env.BROWSER") == null) {
+            return "CHROME";
+        } else {
+            return System.getProperty("env.BROWSER").toUpperCase();
+        }
+    }
 
-    private String browserSelection = "CHROME";
-    private boolean isGridEnabled = true;
+    private boolean isGridEnabled() {
+        if (System.getProperty("env.GRID") == null) {
+            return false;
+        } else if (System.getProperty("env.GRID").contains("false")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     // ** Driver setup for Selenium WebDriver */
 
     private void setupWebDriver() {
-        switch (browserSelection) {
+        switch (getBrowserType()) {
             case "CHROME":
                 WebDriverManager.chromedriver();
             case "FIREFOX":
                 WebDriverManager.firefoxdriver();
-            default:
-                WebDriverManager.chromedriver();
         }
     }
 
     private WebDriver createWebDriver() {
-        switch (browserSelection) {
+        switch (getBrowserType()) {
             case "CHROME":
                 return new ChromeDriver();
             case "FIREFOX":
                 return new FirefoxDriver();
-            default:
-                return new ChromeDriver();
         }
+        return null;
     }
 
     // ** Driver setup for Selenium Grid RemoteWebDriver */
@@ -55,7 +63,7 @@ public class DriverFactory {
         FirefoxOptions firefoxOptions;
         DesiredCapabilities capabilities;
 
-        switch (browserSelection) {
+        switch (getBrowserType()) {
             case "CHROME":
                 chromeOptions = new ChromeOptions();
                 capabilities = new DesiredCapabilities();
@@ -69,18 +77,14 @@ public class DriverFactory {
                 capabilities.setCapability(ChromeOptions.CAPABILITY, firefoxOptions);
                 return capabilities;
             default:
-                chromeOptions = new ChromeOptions();
-                capabilities = new DesiredCapabilities();
-                capabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-                return capabilities;
+                return null;
+
         }
     }
 
     private WebDriver createRemoteDriver() {
         WebDriver driver;
-        String remoteURL = "http://localhost:4444/";
-
+        String remoteURL = "http://172.17.0.1:4444/";
         try {
             driver = new RemoteWebDriver(URI.create(remoteURL).toURL(), setupRemoteWebDriver());
             return driver;
@@ -92,19 +96,17 @@ public class DriverFactory {
     }
 
     public void setupDriver() {
-        if (!isGridEnabled) {
+        if (!isGridEnabled()) {
             setupWebDriver();
-        } else if (isGridEnabled) {
+        } else if (isGridEnabled()) {
             setupRemoteWebDriver();
-        } else {
-
         }
     }
 
     public WebDriver createDriver() {
-        if (!isGridEnabled) {
+        if (!isGridEnabled()) {
             return createWebDriver();
-        } else if (isGridEnabled) {
+        } else if (isGridEnabled()) {
             return createRemoteDriver();
         } else {
             return null;
